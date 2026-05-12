@@ -35,3 +35,11 @@ CloudAMQP is a managed RabbitMQ service hosted on the cloud, meaning there is no
 ![SSS Bonus](assets/images/SSS_Bonus.png)
 
 The behavior is the same as the localhost version. The difference is that the broker is now hosted on CloudAMQP, proving that the slow subscriber problem and queue buildup occur regardless of whether the broker runs locally or on the cloud. 
+
+## [Bonus] Running Three Subscribers
+![R3S RabbitMQ Bonus](assets/images/R3S_RabbitMQ_Bonus.png)
+![R3S Console1 Bonus](assets/images/R3S_Console1_Bonus.png)
+![R3S Console2 Bonus](assets/images/R3S_Console2_Bonus.png)
+![R3S Console3 Bonus](assets/images/R3S_Console3_Bonus.png)
+
+The behavior is the same as the localhost version. 3 subscribers process messages in parallel, draining the queue significantly faster than a single subscriber. 
