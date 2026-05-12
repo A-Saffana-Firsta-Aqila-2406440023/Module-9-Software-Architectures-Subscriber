@@ -27,3 +27,11 @@ With 3 subscribers running simultaneously and the publisher run 5 times (in my c
 **What can be improved?**
 - **Improve Error Handling**: Both publisher and subscriber suppress results using `_ =`. If the RabbitMQ connection drops, the queue is unreachable, or the listener fails to bind, errors will be silently ignored. It is better to handle them, log them, or at least use `.unwrap()` or `.expect()` so we know when something fails.
 - **Avoid Hardcoded Connection Strings**: The AMQP URL (`"amqp://guest:guest@localhost:5672"`) is hardcoded in both publisher and subscriber. It is best practice to pull this from an environment variable so the code does not need to be changed when deploying to different environments.
+
+# Bonus: Running on Cloud Using CloudAMQP
+CloudAMQP is a managed RabbitMQ service hosted on the cloud, meaning there is no need to run Docker or set up a local broker. The message broker is accessible over the internet via a secured `amqps://` (SSL/TLS) connection. The only change made from the localhost version is replacing the broker URL from `amqp://guest:guest@localhost:5672` to a CloudAMQP-hosted URL.
+
+## [Bonus] Simulation Slow Subscriber
+![SSS Bonus](assets/images/SSS_Bonus.png)
+
+The behavior is the same as the localhost version. The difference is that the broker is now hosted on CloudAMQP, proving that the slow subscriber problem and queue buildup occur regardless of whether the broker runs locally or on the cloud. 

@@ -35,7 +35,7 @@ impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
 
 fn main() {
     let listener = CrosstownBus::new_queue_listener(
-        "amqp://guest:guest@localhost:5672".to_owned()
+        "amqps://bnqvezpf:YCEeMUCR92DxJtUv-pl3kFq5mA1ZN21b@armadillo.rmq.cloudamqp.com/bnqvezpf".to_owned()
     ).unwrap();
 
     _ = listener.listen(
