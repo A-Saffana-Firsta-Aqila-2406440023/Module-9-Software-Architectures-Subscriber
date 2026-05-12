@@ -18,7 +18,7 @@ impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
         let ten_millis = time::Duration::from_millis(1000);
         let now = time::Instant::now();
 
-        // thread::sleep(ten_millis);
+        thread::sleep(ten_millis);
 
         println!(
             "In Saffana Firsta Aqila’s Computer. Message received: {:?}",
@@ -29,7 +29,7 @@ impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
     }
     
     fn get_handler_action(&self) -> String {
-        String::from("user_created")
+        "user_created".to_owned()
     }
 }
 
